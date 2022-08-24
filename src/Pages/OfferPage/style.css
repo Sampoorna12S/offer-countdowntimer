@@ -1,0 +1,44 @@
+.container {
+  position: absolute;
+  text-align: center;
+  color: white;
+  display: contents;
+  /* width: fit-conte  nt; */
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+}
+
+.optBtn {
+  width: 1000px;
+  height: 50px;
+  /* margin-top: 20%; */
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.timerStyle {
+    font-size: xxx-large;
+    letter-spacing: 10px;
+    font-weight: bolder;
+    font-family: monospace;
+}
+
+.paddingRight {
+  padding-right: 30px;
+  position: relative;
+  top: -25px;
+  font-family: monospace;
+}
+
+p {
+  font-size: xxx-large;
+  word-spacing: 10px;
+  font-family: monospace;
+}
