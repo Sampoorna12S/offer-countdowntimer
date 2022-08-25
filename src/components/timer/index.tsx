@@ -26,7 +26,7 @@ const Timer = ({ data, endTimer }: TimerProps) => {
     }
   };
 
-  const clearTimer = (newTime: Date) => {
+  const startInterval = (newTime: Date) => {
     if (!interval)
       interval = setInterval(() => {
         startTimer(newTime.toISOString());
@@ -35,7 +35,7 @@ const Timer = ({ data, endTimer }: TimerProps) => {
 
   useEffect(() => {
     if (duration)
-      clearTimer(
+      startInterval(
         Helpers.Time.Timer.addTime(
           data?.start_time,
           duration[0],
