@@ -47,7 +47,9 @@ const Timer = ({ data, endTimer }: TimerProps) => {
 
   return timer ? (
     <div data-testid='timer-element'>
-      <h1 className='timerStyle'>{timer}</h1>
+      <h1 data-testid='screen-timer' className='timerStyle'>
+        {timer}
+      </h1>
       <div style={{ marginLeft: '45px' }}>
         <span>Hours</span>
         <span>Minutes</span>

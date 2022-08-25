@@ -8,6 +8,7 @@ const OptInButton = ({ data, displayElement }: DataAndDisplayProps) => {
       style={{
         paddingTop: '5%',
       }}
+      data-testid='optin-element'
       className={displayElement ? '' : 'hideElement'}
     >
       <button

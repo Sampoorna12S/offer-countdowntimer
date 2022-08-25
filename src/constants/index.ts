@@ -1,4 +1,5 @@
-import KEYS from "./keys";
-import TIME from "./time";
+import KEYS from './keys';
+import TIME from './time';
+import MOCKDATA from './mockData';
 
-export { KEYS,TIME };
+export { KEYS, TIME, MOCKDATA };

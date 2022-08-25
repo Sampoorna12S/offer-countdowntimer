@@ -1,19 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import OfferPage from './';
+import { MOCKDATA } from '../../constants';
 
 describe('Offer Page', () => {
-  let mockData = {
-    cash_value: 10,
-    opt_in_url: 'https://www.jackpotjoy.com',
-    count_down_duration: '01:00:10',
-    start_time: new Date().toISOString(),
-  };
+  let mockData = MOCKDATA.MOCKDATA_VALUES;
 
   let offerPage: any;
   beforeEach(() => {
     offerPage = render(<OfferPage offerData={mockData} />);
   });
-  // console.log('offff', offerPage);
   it('Top Image renders', () => {
     expect(offerPage.queryByTestId('top-img')).toBeInTheDocument();
   });
