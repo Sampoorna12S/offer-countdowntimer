@@ -4,14 +4,14 @@ import Helpers from '../../helpers';
 import { TIME } from '../../constants';
 
 const Timer = ({ data, endTimer }: TimerProps) => {
-  const Ref = useRef<NodeJS.Timer | null>(null);
+  let interval: NodeJS.Timer;
   const [timer, setTimer] = useState<string | null>(null);
   const duration = data?.count_down_duration?.split(':');
 
   const startTimer = (e: string) => {
     let { total, hours, minutes, seconds } =
       Helpers.Time.Timer.getTimeRemaining(e);
-    if (total >= 0) {
+    if (total >= 1000) {
       setTimer(
         (hours > 9 ? hours : '0' + hours) +
           ':' +
@@ -20,17 +20,17 @@ const Timer = ({ data, endTimer }: TimerProps) => {
           (seconds > 9 ? seconds : '0' + seconds)
       );
     } else {
+      clearInterval(interval);
       setTimer(TIME.TIME_VALUES.INITIAL_TIME);
       endTimer();
     }
   };
 
   const clearTimer = (newTime: Date) => {
-    if (Ref.current) clearInterval(Ref.current);
-    const id = setInterval(() => {
-      startTimer(newTime.toISOString());
-    }, 1000);
-    Ref.current = id;
+    if (!interval)
+      interval = setInterval(() => {
+        startTimer(newTime.toISOString());
+      }, 1000);
   };
 
   useEffect(() => {
@@ -46,16 +46,18 @@ const Timer = ({ data, endTimer }: TimerProps) => {
   }, [data?.count_down_duration]);
 
   return timer ? (
-    <div>
+    <div data-testid='timer-element'>
       <h1 className='timerStyle'>{timer}</h1>
       <div style={{ marginLeft: '45px' }}>
-        <span className='paddingRight'>Hours</span>
-        <span className='paddingRight'>Minutes</span>
-        <span className='paddingRight'>Seconds</span>
+        <span>Hours</span>
+        <span>Minutes</span>
+        <span>Seconds</span>
       </div>
     </div>
   ) : (
-    <h1 className='timerStyle'>Loading...</h1>
+    <h1 data-testid='timer-element' className='timerStyle'>
+      Loading...
+    </h1>
   );
 };
 

@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import Api from './api';
 import './App.css';
 import Helpers from './helpers';
-import OfferPage from './Pages/OfferPage';
-import background from './assests/background_scale_2x.jpeg';
+import OfferPage from './pages/OfferPage';
 
 function App() {
   const [offerData, setOfferData] = useState<OfferData>(null);

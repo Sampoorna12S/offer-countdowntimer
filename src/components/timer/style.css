@@ -1,0 +1,13 @@
+.timerStyle {
+  font-size: xxx-large;
+  letter-spacing: 10px;
+  font-weight: bolder;
+  font-family: monospace;
+}
+
+span {
+padding-right: 30px;
+position: relative;
+top: -25px;
+font-family: monospace;
+}

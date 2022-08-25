@@ -1,8 +1,13 @@
 type OfferPageProps = {
-  offerData : OfferData 
-}
+  offerData: OfferData;
+};
 
 type TimerProps = {
-  data : OfferData,
-  endTimer: ()=>void
-}
+  data: OfferData;
+  endTimer: () => void;
+};
+
+type DataAndDisplayProps = {
+  data: OfferData;
+  displayElement: boolean;
+};
